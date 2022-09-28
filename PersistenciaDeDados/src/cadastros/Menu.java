@@ -4,8 +4,29 @@ public class Menu {
 
 	public static void main(String[] args) throws Exception {
 		
-		DAO connection = new DAO();
-		connection.conectar();
+		PessoaDAO pessoaDAO = new PessoaDAO();
+		
+		try {
+			
+			//Cadastrando pessoas no banco de dados
+			
+			//Passando os dados da pessoa pelo método construtor
+			Pessoa pessoa1 = new Pessoa(1, "Wyltamar Douglas","wyltamar@hotmail.com");
+			
+			//Chamando o método incluirPessoa da classe PessoaDAO
+			pessoaDAO.incluirPessoa(pessoa1);
+			
+			//Passando os dados da pessoa através dos métodos setters(acessores) da classe   
+			Pessoa pessoa2 = new Pessoa();
+			pessoa2.setIdPessoa(2);
+			pessoa2.setNomePessoa("Pedro Lucas");
+			pessoa2.setEmail("pedrooluucas@gmail.com");
+			
+			pessoaDAO.incluirPessoa(pessoa2);
+			
+		} catch (Exception e) {
+			System.out.println("Error: " +e.getMessage());
+		}
 	}
 
 }
