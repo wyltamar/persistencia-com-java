@@ -29,7 +29,7 @@ public class Menu {
 			*/
 			
 			//Atualização de pessoa no banco de dados
-			Pessoa pessoaAtualizar = new Pessoa();
+		/*	Pessoa pessoaAtualizar = new Pessoa();
 			pessoaAtualizar = pessoaDAO.buscarPessoaPorId(1);
 			
 			if(pessoaAtualizar != null) {
@@ -43,11 +43,27 @@ public class Menu {
 			
 			for (Pessoa pessoa : listPessoas) {
 				System.out.println(pessoa);
+			}*/
+			
+			//Exclusão
+			
+			Pessoa pessoaExcluir = new Pessoa();
+			pessoaExcluir = pessoaDAO.buscarPessoaPorId(1);
+			
+			if(pessoaExcluir != null) {
+				pessoaDAO.excluirPessoa(pessoaExcluir);
+				System.out.println("Registro excluido com sucesso");
+			}
+			
+			List<Pessoa> listPessoas = pessoaDAO.buscarPessoas();
+			
+			for (Pessoa pessoa : listPessoas) {
+				System.out.println(pessoa);
 			}
 			
 			
-			
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println("Error: " +e.getMessage());
 		}
 	}

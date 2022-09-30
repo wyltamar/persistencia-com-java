@@ -35,7 +35,7 @@ public class PessoaDAO extends DAO {
 	
 	public void excluirPessoa(Pessoa pessoa)throws Exception {
 		
-		String sql = "DELETE pessoa WHERE idPessoa = ?";
+		String sql = "DELETE FROM pessoa WHERE idPessoa = ?";
 		
 		conectar();
 		statement = connection.prepareStatement(sql);
