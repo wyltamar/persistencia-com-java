@@ -51,8 +51,9 @@ public class PessoaDAO extends DAO {
 		
 		conectar();
 		statement = connection.prepareStatement(sql);
+		statement.setInt(1, idPessoa);
 		resultSet = statement.executeQuery();
-		statement.close();
+		
 		
 		Pessoa pessoa = new Pessoa();
 		
@@ -79,7 +80,7 @@ public class PessoaDAO extends DAO {
 		conectar();
 		statement = connection.prepareStatement(sql);
 		resultSet = statement.executeQuery();
-		statement.close();
+		
 		
 		List<Pessoa> listaPessoas = new ArrayList<Pessoa>();
 		

@@ -1,5 +1,7 @@
 package cadastros;
 
+import java.util.List;
+
 public class Menu {
 
 	public static void main(String[] args) throws Exception {
@@ -11,6 +13,7 @@ public class Menu {
 			//Cadastrando pessoas no banco de dados
 			
 			//Passando os dados da pessoa pelo método construtor
+			/*
 			Pessoa pessoa1 = new Pessoa(1, "Wyltamar Douglas","wyltamar@hotmail.com");
 			
 			//Chamando o método incluirPessoa da classe PessoaDAO
@@ -23,6 +26,26 @@ public class Menu {
 			pessoa2.setEmail("pedrooluucas@gmail.com");
 			
 			pessoaDAO.incluirPessoa(pessoa2);
+			*/
+			
+			//Atualização de pessoa no banco de dados
+			Pessoa pessoaAtualizar = new Pessoa();
+			pessoaAtualizar = pessoaDAO.buscarPessoaPorId(1);
+			
+			if(pessoaAtualizar != null) {
+				
+				pessoaAtualizar.setNomePessoa("Maria");
+				pessoaAtualizar.setEmail("maria@gmail.com");
+				pessoaDAO.atualizarPessoa(pessoaAtualizar);
+			}
+			
+			List<Pessoa> listPessoas = pessoaDAO.buscarPessoas();
+			
+			for (Pessoa pessoa : listPessoas) {
+				System.out.println(pessoa);
+			}
+			
+			
 			
 		} catch (Exception e) {
 			System.out.println("Error: " +e.getMessage());

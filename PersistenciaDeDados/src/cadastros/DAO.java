@@ -29,7 +29,6 @@ public class DAO {
 		try {
 			Class.forName("org.postgresql.Driver");
 			connection = DriverManager.getConnection(url,user,password);
-			System.out.println("Conexão com o banco estabelecida com sucesso!");
 		} catch (SQLException | ClassNotFoundException ex) {
 
 			System.out.println("Erro ao conectar com o banco de dados");
