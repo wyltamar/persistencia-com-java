@@ -17,6 +17,7 @@ public class PessoaDAO extends DAO {
 		statement.execute();
 		statement.close();
 		closeConnection();
+		System.out.println("Registro cadastrado com sucesso!");
 	}
 	
 	public void atualizarPessoa(Pessoa pessoa) throws Exception {
